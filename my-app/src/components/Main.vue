@@ -14,13 +14,13 @@
           ></v-text-field>
         </v-flex>
         <v-spacer></v-spacer>
-        <v-flex xs2 sm2 md2>
-          <v-avatar>
-            <img class="toolbar-avatar" src="../assets/batman.jpg" alt="trevor">
-          </v-avatar>
-          Marie Walters
-          <v-icon></v-icon>
-        </v-flex> 
+        <v-chip color="white" text-color="grey">
+            <v-avatar>
+              <img class="toolbar-avatar" src="../assets/batman.jpg" alt="trevor">
+            </v-avatar>
+            Marie Walters
+            <v-icon>keyboard_arrow_down</v-icon>
+        </v-chip>
       </v-toolbar>
       <v-container>
         <v-layout row wrap>
@@ -89,6 +89,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+@media screen and (min-width: 0px) and (max-width: 1200px) {
+  .avatar-name, .avatar-arrow { display: none; } 
+}
 .card-custom {
   max-width: 275px;
   min-height: 360px;
@@ -124,9 +127,5 @@ export default {
 }
 .toolbar-search {
   margin: 8px 0 0 50px;
-}
-.toolbar-avatar {
-  height: 35px;
-  width: 35px;
 }
 </style>
