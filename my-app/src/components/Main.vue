@@ -3,7 +3,7 @@
     <v-app light>
       <v-toolbar color="white">
         <v-toolbar-side-icon></v-toolbar-side-icon>
-        <v-toolbar-title class="font-weight-bold"><span class="text-blue">Woel</span>Fel</v-toolbar-title>
+        <v-toolbar-title class="logo font-weight-bold"><span class="text-blue">Woel</span>Fel</v-toolbar-title>
         <v-flex xs6 sm6 md6>
           <v-text-field
             class="toolbar-search"
@@ -18,7 +18,7 @@
             <v-avatar>
               <img class="toolbar-avatar" src="../assets/batman.jpg" alt="trevor">
             </v-avatar>
-            Marie Walters
+            <span class="profile-name">Marie Walters</span>
             <v-icon>keyboard_arrow_down</v-icon>
         </v-chip>
       </v-toolbar>
@@ -90,7 +90,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 @media screen and (min-width: 0px) and (max-width: 1200px) {
-  .avatar-name, .avatar-arrow { display: none; } 
+  .logo, .profile-name { display: none; } 
 }
 .card-custom {
   max-width: 275px;
