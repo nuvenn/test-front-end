@@ -56,11 +56,22 @@
 </template>
 
 <script>
+import HerosService from '../services/HerosService'
 export default {
   name: "Main",
-  props: {
-    msg: String
-  }
+  data: () => ({
+    heros: null
+  }),
+  methods: {},
+  created () {
+    HerosService.getHeros().then(
+      response => {
+        console.log(response);
+        this.heros = response.data
+      }).catch(
+      error => console.log(error)
+    )
+  },
 };
 </script>
 

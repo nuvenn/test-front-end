@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <v-app light>
-      <Menu></Menu>
-      <Main msg="Boa consulta"/>
+      <Menu />
+      <Main />
     </v-app>
   </div>
 </template>
