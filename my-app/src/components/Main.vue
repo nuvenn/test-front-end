@@ -2,7 +2,7 @@
   <div class="main">
     <v-container>
       <v-layout row wrap>
-        <v-flex xs12 sm6 md3>
+        <!-- <v-flex xs12 sm6 md3>
           <v-card class="card-custom">
             <v-card-title primary-title class="justify-center">
               <div class="text-lg-center">
@@ -26,22 +26,22 @@
               <v-btn class="card-button" flat>Add</v-btn>
             </v-card-actions>
           </v-card>
-        </v-flex>
-        <v-flex xs12 sm6 md3>
+        </v-flex> -->
+        <v-flex xs12 sm6 md3 v-for="hero in heros" :key="hero.id">
           <v-card class="card-custom">
             <v-card-actions>
                 <v-spacer></v-spacer>
-                <v-btn icon>
+                <!-- <v-btn icon @click="changeColor">
                   <v-icon color="red">favorite</v-icon>
-                </v-btn>
+                </v-btn> -->
             </v-card-actions>
             <v-card-media>
-              <img class="card-image" src="../assets/batman.jpg">
+              <img class="card-image" :src="hero.thumbnail.path + '/portrait_large.jpg'">
             </v-card-media>
-            <v-card-title primary-title class="justify-center">
+            <v-card-title primary-title class="justify-center card-title">
               <div class="text-lg-center">
-                <div class="headline">Marie Walters</div>
-                <span class="grey--text">mariewalters@gmail.com</span>
+                <div class="headline">{{ hero.name }}</div>
+                <!-- <span class="grey--text">hero</span> -->
               </div>
             </v-card-title>
             <v-card-actions class="justify-center">
@@ -66,8 +66,7 @@ export default {
   created () {
     HerosService.getHeros().then(
       response => {
-        console.log(response);
-        this.heros = response.data
+        this.heros = response.data.data.results
       }).catch(
       error => console.log(error)
     )
@@ -79,7 +78,7 @@ export default {
 <style scoped>
 .card-custom {
   max-width: 275px;
-  min-height: 360px;
+  min-height: 320px;
   margin: 5px auto;
 }
 .card-image {
@@ -94,6 +93,9 @@ export default {
   margin: 0 auto;
   border-radius: 50%;
 }
+.card-title {
+  height: 100px;
+}
 .card-form {
   margin: 0 30px 0 30px;
 }
@@ -102,6 +104,7 @@ export default {
   width: 115px;
   border-radius: 20px 20px 20px 20px; 
   text-transform: none !important;
+  bottom: 5px;
 }
 .card-button:hover {
   background-color: blue !important;
