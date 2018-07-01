@@ -27,7 +27,7 @@
             </v-card-actions>
           </v-card>
         </v-flex> -->
-        <v-flex xs12 sm6 md3 v-for="hero in heros" :key="hero.id">
+        <v-flex xs12 sm6 md3 v-for="hero in filteredData(searchParam)" :key="hero.id">
           <v-card class="card-custom">
             <v-card-actions>
                 <v-spacer></v-spacer>
@@ -45,7 +45,7 @@
               </div>
             </v-card-title>
             <v-card-actions class="justify-center">
-              <v-btn class="card-button" flat>Assign</v-btn>
+              <!-- <v-btn class="card-button" flat>Assign</v-btn> -->
               <v-btn class="card-button" flat>View</v-btn>
             </v-card-actions>
           </v-card>
@@ -59,13 +59,21 @@
 import HerosService from '../services/HerosService'
 export default {
   name: "Main",
+  props: ['searchParam'],
   data: () => ({
     heros: null
   }),
-  methods: {},
+  methods: {
+    filteredData (searchParam) {
+      if(this.heros){
+        return this.heros.filter(hero => hero.name === searchParam)
+      }
+    }
+  },
   created () {
     HerosService.getHeros().then(
       response => {
+        console.log(this.searchParam)
         this.heros = response.data.data.results
       }).catch(
       error => console.log(error)

@@ -4,6 +4,7 @@
         <v-toolbar-title class="logo font-weight-bold"><span class="text-blue">Woel</span>Fel</v-toolbar-title>
         <v-flex xs6 sm6 md6>
           <v-text-field
+            v-model="searchQuery"
             class="toolbar-search font-weight-light font-italic"
             label="Solo"
             placeholder="Search..."
@@ -16,13 +17,17 @@
             <v-avatar>
               <img class="toolbar-avatar" src="../assets/batman.jpg" alt="trevor">
             </v-avatar>
-            <span class="profile-name">Marie Walters</span>
+            <span class="profile-name">Guest User</span>
             <v-icon>keyboard_arrow_down</v-icon>
         </v-chip>
     </v-toolbar>
 </template>
 <script>
 export default {
+  name: "Menu",
+  data: () => ({
+    searchQuery: null
+  }),
   methods: {}
 };
 </script>

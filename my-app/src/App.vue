@@ -2,7 +2,7 @@
   <div id="app">
     <v-app light>
       <Menu />
-      <Main />
+      <Main search-param="Abyss"/>
     </v-app>
   </div>
 </template>
