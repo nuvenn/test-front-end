@@ -56,25 +56,26 @@
 </template>
 
 <script>
-import HerosService from '../services/HerosService'
+import HeroesService from '../services/HeroesService'
 export default {
   name: "Main",
   props: ['searchParam'],
   data: () => ({
-    heros: null
+    heroes: null
   }),
   methods: {
     filteredData (searchParam) {
-      if(this.heros){
-        return this.heros.filter(hero => hero.name === searchParam)
+      if(this.heroes && searchParam){
+        return this.heroes.filter(hero => hero.name.match(searchParam))
+      } else {
+        return this.heroes
       }
     }
   },
   created () {
-    HerosService.getHeros().then(
+    HeroesService.getHeroes().then(
       response => {
-        console.log(this.searchParam)
-        this.heros = response.data.data.results
+        this.heroes = response.data.data.results
       }).catch(
       error => console.log(error)
     )
