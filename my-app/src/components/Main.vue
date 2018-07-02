@@ -31,9 +31,9 @@
           <v-card class="card-custom">
             <v-card-actions>
                 <v-spacer></v-spacer>
-                  <v-btn icon>
-                  <v-icon color="red">favorite</v-icon>
-                </v-btn>
+                <button class="heart-button">
+                  <img :src="image" alt="heart">
+                </button>
             </v-card-actions>
             <v-card-media>
               <img class="card-image" :src="hero.thumbnail.path + '/portrait_large.jpg'">
@@ -67,7 +67,8 @@ export default {
   name: "Main",
   data: () => ({
     searchParam: '',
-    heroes: null
+    heroes: null,
+    image: require('../assets/heart.png')
   }),
   methods: {
     searchHero(event) {
@@ -133,6 +134,9 @@ export default {
 .card-button:hover {
   background-color: #507bfc !important;
   color: #FFF !important;
+}
+.heart-button:focus {
+  outline:none;
 }
 .card-button-icon {
   margin-right: 10px;
