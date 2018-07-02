@@ -4,7 +4,8 @@
         <v-toolbar-title class="logo font-weight-bold"><span class="text-blue">Woel</span>Fel</v-toolbar-title>
         <v-flex xs6 sm6 md6>
           <v-text-field
-            v-model="searchQuery"
+            :value="hero"
+            @input="searchHero"
             class="toolbar-search font-weight-light font-italic"
             label="Solo"
             placeholder="Search..."
@@ -25,10 +26,16 @@
 <script>
 export default {
   name: "Menu",
+  props: [ 'hero' ],
   data: () => ({
-    searchQuery: null
+    searchQuery: ''
   }),
-  methods: {}
+  methods: {
+    searchHero(event){
+      console.log(event)
+      this.searchQuery= event
+    }
+  }
 };
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->

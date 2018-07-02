@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <v-app light>
-      <Menu />
+      <Menu hero=""/>
       <Main search-param="Abyss"/>
     </v-app>
   </div>
