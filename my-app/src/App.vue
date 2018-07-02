@@ -1,21 +1,18 @@
 <template>
   <div id="app">
     <v-app light>
-      <Menu hero=""/>
-      <Main search-param="Abyss"/>
+      <Main />
     </v-app>
   </div>
 </template>
 
 <script>
-import Menu from './components/Menu'
 import Main from './components/Main.vue'
 
 export default {
   name: 'app',
   components: {
-    Main,
-    Menu
+    Main
   }
 }
 </script>

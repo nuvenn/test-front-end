@@ -1,32 +1,30 @@
 <template>
   <div class="main">
+    <v-toolbar color="white">
+        <v-toolbar-side-icon class="menu-icon"></v-toolbar-side-icon>
+        <v-toolbar-title class="logo font-weight-bold"><span class="text-blue">Woel</span>Fel</v-toolbar-title>
+        <v-flex xs6 sm6 md6>
+          <v-text-field
+            :value="searchParam"
+            @input="searchHero"
+            class="toolbar-search font-weight-light font-italic"
+            label="Solo"
+            placeholder="Search..."
+            height="30"
+            solo
+          ></v-text-field>
+        </v-flex>
+        <v-spacer></v-spacer>
+        <v-chip color="white" text-color="grey">
+            <v-avatar>
+              <img class="toolbar-avatar" src="../assets/batman.jpg" alt="trevor">
+            </v-avatar>
+            <span class="profile-name">Guest User</span>
+            <v-icon>keyboard_arrow_down</v-icon>
+        </v-chip>
+    </v-toolbar>
     <v-container>
       <v-layout row wrap>
-        <!-- <v-flex xs12 sm6 md3>
-          <v-card class="card-custom">
-            <v-card-title primary-title class="justify-center">
-              <div class="text-lg-center">
-                <span class="grey--text">Add New Member</span>
-              </div>
-            </v-card-title>
-            <v-card-media>
-              <img class="card-image-profile" src="../assets/profile.png">
-            </v-card-media>
-            <v-form class="card-form"> 
-              <v-text-field
-                required
-                placeholder="Name"
-              ></v-text-field>
-              <v-text-field
-                required
-                placeholder="E-mail"
-              ></v-text-field>
-            </v-form>
-            <v-card-actions class="justify-center">
-              <v-btn class="card-button" flat>Add</v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-flex> -->
         <v-flex xs12 sm6 md3 v-for="hero in filteredData(searchParam)" :key="hero.id">
           <v-card class="card-custom">
             <v-card-actions>
@@ -64,6 +62,10 @@ export default {
     heroes: null
   }),
   methods: {
+    searchHero(event) {
+      this.searchParam= event
+      console.log(this.searchParam)
+    },
     filteredData (searchParam) {
       if(this.heroes && searchParam){
         return this.heroes.filter(hero => hero.name.match(searchParam))
@@ -118,5 +120,11 @@ export default {
 .card-button:hover {
   background-color: blue !important;
   color: #FFF !important;
+}
+.toolbar-search {
+  margin: 8px 0 0 50px;
+}
+.menu-icon {
+  color: #9e9e9e;
 }
 </style>
