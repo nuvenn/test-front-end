@@ -27,12 +27,14 @@
     </v-toolbar>
     <v-container>
       <v-layout row wrap>
+      </v-layout>  
+      <v-layout row wrap>
         <v-flex xs12 sm6 md3 v-for="hero in filteredData(searchParam)" :key="hero.id">
           <v-card class="card-custom">
             <v-card-actions>
                 <v-spacer></v-spacer>
                 <button class="heart-button">
-                  <img :src="image" alt="heart">
+                  <div id="heart-image"></div>
                 </button>
             </v-card-actions>
             <v-card-media>
@@ -67,8 +69,7 @@ export default {
   name: "Main",
   data: () => ({
     searchParam: '',
-    heroes: null,
-    image: require('../assets/heart.png')
+    heroes: null
   }),
   methods: {
     searchHero(event) {
@@ -137,6 +138,14 @@ export default {
 }
 .heart-button:focus {
   outline:none;
+}
+#heart-image {
+  background-image: url("../assets/heart_outlined.png");
+  height: 40px;
+  width: 40px;
+}
+#heart-image:hover {
+  background-image: url("../assets/heart.png");
 }
 .card-button-icon {
   margin-right: 10px;
