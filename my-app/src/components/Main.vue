@@ -44,7 +44,7 @@
             </v-card-title>
             <v-card-actions class="justify-center">
               <!-- <v-btn class="card-button" flat>Assign</v-btn> -->
-              <v-btn class="card-button" flat>View</v-btn>
+              <v-btn v-bind:href="hero.urls[0].url" class="card-button" flat>View</v-btn>
             </v-card-actions>
           </v-card>
         </v-flex>
@@ -78,10 +78,10 @@ export default {
       response => {
         this.heroes = response.data.data.results
       }).catch(
-      error => console.log(error)
-    )
-  },
-};
+        error => { throw `Falha de comunicação com servidor - ${error}`  }
+      )
+  }
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
