@@ -2,7 +2,9 @@
   <div class="main">
     <v-toolbar color="white">
         <v-toolbar-side-icon class="menu-icon"></v-toolbar-side-icon>
-        <v-toolbar-title class="logo font-weight-bold"><span class="text-blue">Woel</span>Fel</v-toolbar-title>
+        <v-toolbar-title class="logo font-weight-bold">
+          <img src="../assets/woelfel.png" alt="logo">
+        </v-toolbar-title>
         <v-flex xs6 sm6 md6>
           <v-text-field
             :value="searchParam"
@@ -17,7 +19,7 @@
         <v-spacer></v-spacer>
         <v-chip color="white" text-color="grey">
             <v-avatar>
-              <img class="toolbar-avatar" src="../assets/batman.jpg" alt="trevor">
+              <img class="toolbar-avatar" src="../assets/homer.png" alt="avatar">
             </v-avatar>
             <span class="profile-name">Guest User</span>
             <v-icon>keyboard_arrow_down</v-icon>
@@ -29,9 +31,9 @@
           <v-card class="card-custom">
             <v-card-actions>
                 <v-spacer></v-spacer>
-                <!-- <v-btn icon @click="changeColor">
+                  <v-btn icon>
                   <v-icon color="red">favorite</v-icon>
-                </v-btn> -->
+                </v-btn>
             </v-card-actions>
             <v-card-media>
               <img class="card-image" :src="hero.thumbnail.path + '/portrait_large.jpg'">
@@ -39,12 +41,18 @@
             <v-card-title primary-title class="justify-center card-title">
               <div class="text-lg-center">
                 <div class="headline">{{ hero.name }}</div>
-                <!-- <span class="grey--text">hero</span> -->
+                <span class="grey--text">{{`${hero.name.split(" ")[0]}@gmail.com`}}</span>
               </div>
             </v-card-title>
             <v-card-actions class="justify-center">
-              <!-- <v-btn class="card-button" flat>Assign</v-btn> -->
-              <v-btn v-bind:href="hero.urls[0].url" class="card-button" flat>View</v-btn>
+              <v-btn class="card-button" flat>
+                <img class="card-button-icon" src="../assets/to-do.png" alt="to-do">
+                <span>Assign</span>
+              </v-btn>
+              <v-btn v-bind:href="hero.urls[0].url" class="card-button" flat>
+                <img class="card-button-icon" src="../assets/preview.png" alt="preview">
+                <span>View</span>
+              </v-btn>
             </v-card-actions>
           </v-card>
         </v-flex>
@@ -86,14 +94,20 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.card-custom div {
+  font-size: 18px !important;
+}
+.card-custom span {
+  font-size: 14px !important;
+}
 .card-custom {
-  max-width: 275px;
+  max-width: 280px;
   min-height: 320px;
   margin: 5px auto;
 }
 .card-image {
-  width: 150px;
-  height: 150px;
+  width: 120px;
+  height: 120px;
   margin: 0 auto;
   border-radius: 50%;
 }
@@ -110,20 +124,23 @@ export default {
   margin: 0 30px 0 30px;
 }
 .card-button {
-  color: #9e9e9e;
+  color: #bfc5d1;
   width: 115px;
   border-radius: 20px 20px 20px 20px; 
   text-transform: none !important;
   bottom: 5px;
 }
 .card-button:hover {
-  background-color: blue !important;
+  background-color: #507bfc !important;
   color: #FFF !important;
+}
+.card-button-icon {
+  margin-right: 10px;
 }
 .toolbar-search {
   margin: 8px 0 0 50px;
 }
 .menu-icon {
-  color: #9e9e9e;
+  color: #bfc5d1;
 }
 </style>
