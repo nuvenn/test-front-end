@@ -57,18 +57,17 @@
 import HeroesService from '../services/HeroesService'
 export default {
   name: "Main",
-  props: ['searchParam'],
   data: () => ({
+    searchParam: '',
     heroes: null
   }),
   methods: {
     searchHero(event) {
-      this.searchParam= event
-      console.log(this.searchParam)
+      this.searchParam = event
     },
     filteredData (searchParam) {
       if(this.heroes && searchParam){
-        return this.heroes.filter(hero => hero.name.match(searchParam))
+        return this.heroes.filter(hero => hero.name.toLowerCase().match(searchParam.toLowerCase()))
       } else {
         return this.heroes
       }
