@@ -31,7 +31,7 @@
       <v-layout row wrap>
         <v-flex xs12 sm6 md3 v-for="hero in filteredData(searchParam)" :key="hero.id">
           <v-card class="card-custom">
-            <v-card-actions>
+            <v-card-actions class="favorite-panel">
                 <v-spacer></v-spacer>
                 <button class="heart-button">
                   <div id="heart-image"></div>
@@ -136,6 +136,9 @@ export default {
   background-color: #507bfc !important;
   color: #FFF !important;
 }
+.favorite-panel {
+  height: 50px;
+}
 .heart-button:focus {
   outline:none;
 }
@@ -146,6 +149,7 @@ export default {
 }
 #heart-image:hover {
   background-image: url("../assets/heart.png");
+  margin-top: 9px;
 }
 .card-button-icon {
   margin-right: 10px;
