@@ -137,10 +137,6 @@ export default {
 .card-button-icon:hover {
   color: #FFF !important;
 }
-.rocket-button {
-  background-color: #507bfc !important;
-  color: #FFF !important;
-}
 .favorite-panel {
   height: 50px;
 }
