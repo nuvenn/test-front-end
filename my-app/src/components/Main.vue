@@ -27,8 +27,6 @@
     </v-toolbar>
     <v-container>
       <v-layout row wrap>
-      </v-layout>  
-      <v-layout row wrap>
         <v-flex xs12 sm6 md3 v-for="hero in filteredData(searchParam)" :key="hero.id">
           <v-card class="card-custom">
             <v-card-actions class="favorite-panel">
@@ -133,6 +131,13 @@ export default {
   bottom: 5px;
 }
 .card-button:hover {
+  background-color: #507bfc !important;
+  color: #FFF !important;
+}
+.card-button-icon:hover {
+  color: #FFF !important;
+}
+.rocket-button {
   background-color: #507bfc !important;
   color: #FFF !important;
 }
