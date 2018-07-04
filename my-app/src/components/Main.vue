@@ -65,15 +65,18 @@
 
 <script>
 import HeroesService from '../services/HeroesService'
+import { mapGetters } from 'vuex'
+
 export default {
   name: "Main",
-  data: () => ({
-    searchParam: '',
-    heroes: null
+  data: () => ({ }),
+  computed: mapGetters({
+    searchParam: 'getSearchParam',
+    heroes: 'getHeroes'
   }),
   methods: {
     searchHero(event) {
-      this.searchParam = event
+      this.$store.commit('bindHero', event)
     },
     filteredData (searchParam) {
       if(this.heroes && searchParam){
@@ -86,7 +89,7 @@ export default {
   created () {
     HeroesService.getHeroes().then(
       response => {
-        this.heroes = response.data.data.results
+        this.$store.commit('setHeroes', response.data.data.results)
       }).catch(
         error => { throw `Falha de comunicação com servidor - ${error}`  }
       )
