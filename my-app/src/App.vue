@@ -1,18 +1,21 @@
 <template>
   <div id="app">
     <v-app light>
-      <Main />
+      <Toolbar />
+      <Heroes />
     </v-app>
   </div>
 </template>
 
 <script>
-import Main from './components/Main.vue'
+import Toolbar from './components/Common/Toolbar.vue'
+import Heroes from './components/Heroes/Heroes.vue'
 
 export default {
   name: 'app',
   components: {
-    Main
+    Toolbar,
+    Heroes
   }
 }
 </script>
