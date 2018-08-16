@@ -26,8 +26,6 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
-
 export default {
   name: "Toolbar",
   methods: {
@@ -35,7 +33,7 @@ export default {
       this.$store.commit('bindHero', event)
     }  
   }
-};
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

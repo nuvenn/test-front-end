@@ -11,7 +11,11 @@ export const store = new Vuex.Store({
     },
     getters: {
         getHeroes(state) {
-            return state.heroes
+            if(state.searchParam){
+                return state.heroes.filter(hero => hero.name.toLowerCase().match(state.searchParam.toLowerCase()))
+            } else {
+                return state.heroes
+            }
         },
         getSearchParam(state) {
             return state.searchParam
