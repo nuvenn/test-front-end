@@ -35,7 +35,6 @@
 </template>
 
 <script>
-import HeroesService from '../../services/HeroesService'
 import { mapGetters } from 'vuex'
 
 export default {
@@ -55,12 +54,7 @@ export default {
     }
   },
   created () {
-    HeroesService.getHeroes().then(
-      response => {
-        this.$store.commit('setHeroes', response.data.data.results)
-      }).catch(
-        error => { throw `Falha de comunicação com servidor - ${error}`  }
-      )
+    this.$store.dispatch('fetchHeroes')
   }
 }
 </script>

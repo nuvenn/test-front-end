@@ -1,5 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import HeroesService from '../services/HeroesService'
+
 Vue.use(Vuex)
 
 export const store = new Vuex.Store({
@@ -24,6 +26,13 @@ export const store = new Vuex.Store({
         }
     },
     actions: {
-        // Get data from server and send that to mutations to mutate the current state
+        fetchHeroes({ commit }) {    
+            HeroesService.getHeroes().then(
+              response => {
+                 commit('setHeroes', response.data.data.results)
+               }).catch(
+                 error => { throw `Falha de comunicação com servidor - ${error}`  }
+               )
+        }   
     }
 })
