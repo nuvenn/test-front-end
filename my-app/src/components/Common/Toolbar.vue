@@ -6,7 +6,6 @@
         </v-toolbar-title>
         <v-flex xs6 sm6 md6>
           <v-text-field
-            :value="searchParam"
             @input="searchHero"
             class="toolbar-search font-weight-light font-italic"
             label="Solo"
@@ -31,11 +30,6 @@ import { mapGetters } from "vuex";
 
 export default {
   name: "Toolbar",
-  data: () => ({}),
-  computed: mapGetters({
-    searchParam: "getSearchParam",
-    heroes: "getHeroes"
-  }),
   methods: {
     searchHero(event) {
       this.$store.commit('bindHero', event)

@@ -1,7 +1,7 @@
 <template>
     <v-container>
       <v-layout row wrap>
-        <v-flex xs12 sm6 md3 v-for="hero in filteredData(searchParam)" :key="hero.id">
+        <v-flex xs12 sm6 md3 v-for="hero in filteredData()" :key="hero.id">
           <v-card class="card-custom">
             <v-card-actions class="favorite-panel">
                 <v-spacer></v-spacer>
@@ -46,9 +46,9 @@ export default {
     heroes: 'getHeroes'
   }),
   methods: {
-    filteredData (searchParam) {
-      if(this.heroes && searchParam){
-        return this.heroes.filter(hero => hero.name.toLowerCase().match(searchParam.toLowerCase()))
+    filteredData() {
+      if(this.heroes && this.searchParam){
+        return this.heroes.filter(hero => hero.name.toLowerCase().match(this.searchParam.toLowerCase()))
       } else {
         return this.heroes
       }
