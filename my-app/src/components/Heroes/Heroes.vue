@@ -41,7 +41,6 @@ export default {
   name: "Heroes",
   data: () => ({ }),
   computed: mapGetters({
-    searchParam: 'getSearchParam',
     heroes: 'getHeroes'
   }),
   created () {
